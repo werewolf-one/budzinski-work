@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Writing — Nate Budzinski</title>
+  <meta name="description" content="Selected criticism and essays by Nate Budzinski (also published as Nathan and Nathaniel Budzinski) — on folk horror, the occult, filmmakers and moving image, for Sight &amp; Sound, Frieze, The Wire and ArtReview.">
+  <link rel="canonical" href="https://budzinski.work/writing/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://budzinski.work/writing/">
+  <meta property="og:title" content="Writing — Nate Budzinski">
+  <meta property="og:description" content="Selected criticism on folk horror, the occult, and moving image — for Sight &amp; Sound, Frieze, The Wire and ArtReview.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #0e0e0e;
+      --text:       #e8e8e4;
+      --text-dim:   rgba(232, 232, 228, 0.45);
+      --text-faint: rgba(232, 232, 228, 0.15);
+      --accent:     #a07248;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── NAV ─────────────────────────────────────────── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.75rem 2.5rem;
+      border-bottom: 1px solid var(--text-faint);
+    }
+
+    .nav-name {
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-name:hover { color: var(--text); }
+
+    .nav-links a.active { color: var(--text); }
+
+    /* ── MAIN ────────────────────────────────────────── */
+    main {
+      flex: 1;
+      padding: 5rem 2.5rem 8rem;
+      max-width: 760px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 2rem;
+    }
+
+    .intro {
+      font-size: 1rem;
+      color: var(--text-dim);
+      line-height: 1.75;
+      max-width: 56ch;
+      margin-bottom: 1rem;
+    }
+
+    .intro:last-of-type { margin-bottom: 4.5rem; }
+
+    /* ── SECTIONS ────────────────────────────────────── */
+    h2 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding-bottom: 0.9rem;
+      margin-bottom: 0.5rem;
+      border-bottom: 1px solid var(--text-faint);
+    }
+
+    section { margin-bottom: 4rem; }
+
+    ul.works { list-style: none; }
+
+    ul.works li {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid rgba(232, 232, 228, 0.07);
+    }
+
+    .work-title {
+      display: block;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--text);
+      text-decoration: none;
+      line-height: 1.35;
+      margin-bottom: 0.4rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.25s ease, color 0.25s ease;
+    }
+
+    a.work-title { display: inline-block; }
+    a.work-title:hover { color: #fff; border-color: var(--accent); }
+
+    .work-desc {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      line-height: 1.65;
+      max-width: 58ch;
+      margin-bottom: 0.5rem;
+    }
+
+    .work-meta {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: rgba(232, 232, 228, 0.3);
+    }
+
+    .work-meta .outlet { color: rgba(232, 232, 228, 0.5); }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--text-faint);
+      padding: 2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-note {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: rgba(232, 232, 228, 0.2);
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 600px) {
+      nav { padding: 1.4rem 1.5rem; }
+      .nav-name { display: none; }
+      .nav-links { gap: 1.5rem; }
+      main { padding: 3.5rem 1.5rem 6rem; }
+      footer { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-name" href="/">Nate Budzinski</a>
+    <ul class="nav-links">
+      <li><a href="/films/">Films</a></li>
+      <li><a href="/writing/" class="active">Writing</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>Writing</h1>
+
+    <p class="intro">
+      Before I made films about folk horror I spent fifteen years writing about it — and about
+      the occult revival, hauntology, colonial violence in the landscape, and the filmmakers who
+      got there first. The criticism below is not a separate career. It is the reading list behind
+      the films.
+    </p>
+    <p class="intro">
+      Published for <em>Sight &amp; Sound</em>, <em>Frieze</em>, <em>The Wire</em> and
+      <em>ArtReview</em>, variously bylined Nate, Nathan and Nathaniel Budzinski.
+    </p>
+
+    <!-- ── SECTION 1 ─────────────────────────────────── -->
+    <section>
+      <h2>Folk horror, the occult, and the end of the world</h2>
+      <ul class="works">
+
+        <li>
+          <a class="work-title" href="https://artreview.com/its-all-an-indian-burial-ground-folk-horror-cinema-reckoning-with-colonial-violence/">It's All an Indian Burial Ground</a>
+          <span class="work-desc">Folk-horror cinema reckoning with colonial violence — and its wider cultural impact, from art and music to history.</span>
+          <span class="work-meta"><span class="outlet">ArtReview</span> · Feature</span>
+        </li>
+
+        <li>
+          <a class="work-title" href="https://artreview.com/the-season-of-the-witch-opinion-nathaniel-budzinski/">The Season of the Witch</a>
+          <span class="work-desc">On the rise of alternative religion and mysticism in art and culture.</span>
+          <span class="work-meta"><span class="outlet">ArtReview</span> · Feature</span>
+        </li>
+
+        <li>
+          <a class="work-title" href="https://frieze.com/article/new-dark-age-james-bridles-lovecraft-inspired-prologue-end-world">New Dark Age</a>
+          <span class="work-desc">James Bridle's Lovecraft-inspired prologue to the end of the world — technology and catastrophe.</span>
+          <span class="work-meta"><span class="outlet">Frieze</span> · Feature</span>
+        </li>
+
+        <li>
+          <a class="work-title" href="https://frieze.com/article/art-new-age-golden-records">The New Age</a>
+          <span class="work-desc">Contemporary art and new age aesthetics.</span>
+          <span class="work-meta"><span class="outlet">Frieze</span> · Feature</span>
+        </li>
+
+        <li>
+          <a class="work-title" href="https://frieze.com/article/bbcs-civilisations-cheery-history-travelogue-apocalyptic-terror">Civilisations</a>
+          <span class="work-desc">The BBC's reboot of Kenneth Clark's 1969 series, from cheery history travelogue to apocalyptic terror.</span>
+          <span class="work-meta"><span class="outlet">Frieze</span> · Essay</span>
+        </li>
+
+        <li>
+          <a class="work-title" href="https://www.amazon.com/dp/B0BHNW4ZM4">Apocalypse Rock</a>
+          <span class="work-desc">A dark mystery novel about a remote Pacific Northwest island community taken over by a new age cult. Also available as an <a href="https://www.amazon.com/gp/product/B0BLTCFYRH/" style="color: var(--text-dim); text-decoration: underline;">audiobook</a>.</span>
+          <span class="work-meta"><span class="outlet">Novel</span></span>
+        </li>
+
+      </ul>
+    </section>
+
+    <!-- ── SECTION 2 ─────────────────────────────────── -->
+    <section>
+      <h2>Filmmakers and moving image</h2>
+      <ul class="works">
+
+        <li>
+          <a class="work-title" href="http://autoitaliasoutheast.org/Tumblr/AMIOnline.pdf">Full Stream Ahead</a>
+          <span class="work-desc">On artists' video work made for, and distributed on, the internet.</span>
+          <span class="work-meta"><span class="outlet">Sight &amp; Sound</span> · June 2013</span>
+        </li>
+
+        <li>
+          <a class="work-title" href="https://www.thewire.co.uk/in-writing/interviews/an-interview-with-adam-curtis">An Interview With Adam Curtis</a>
+          <span class="work-desc">The documentarist on pop trash, posh documentaries, hauntology, and writing with archives.</span>
+          <span class="work-meta"><span class="outlet">The Wire</span> · July 2011</span>
+        </li>
+
+        <li>
+          <a class="work-title" href="http://www.thewire.co.uk/about/artists/john-akomfrah/john-akomfrah_the-nine-muses">John Akomfrah: The Nine Muses</a>
+          <span class="work-desc">Interview with the filmmaker and Black Audio Film Collective founder.</span>
+          <span class="work-meta"><span class="outlet">The Wire</span> · Interview</span>
+        </li>
+
+        <!-- TO RELINK: replace <span class="work-title"> with:
+             <a class="work-title" href="/writing/pdfs/peter-watkins-oca-the-wire-2012.pdf"> ... </a> -->
+        <li>
+          <span class="work-title">Peter Watkins: A Retrospective</span>
+          <span class="work-desc">On the radical filmmaker and activist's retrospective at Office for Contemporary Art, Oslo.</span>
+          <span class="work-meta"><span class="outlet">The Wire</span> · August 2012 · Print</span>
+        </li>
+
+        <li>
+          <a class="work-title" href="https://artreview.com/tova-mozard-iloveruss-nikolaj-kunsthal-copenhagen-review/">Tova Mozard's LA Dreamlands</a>
+          <span class="work-desc">On the Swedish artist's feature-length film installation, ILOVERUSS.</span>
+          <span class="work-meta"><span class="outlet">ArtReview</span> · Review</span>
+        </li>
+
+        <!-- TO RELINK: replace <span class="work-title"> with:
+             <a class="work-title" href="/writing/pdfs/matt-stokes-the-wire-2010.pdf"> ... </a> -->
+        <li>
+          <span class="work-title">Matt Stokes</span>
+          <span class="work-desc">Feature interview with the artist and filmmaker.</span>
+          <span class="work-meta"><span class="outlet">The Wire</span> · October 2010 · Print</span>
+        </li>
+
+        <li>
+          <a class="work-title" href="https://www.frieze.com/article/civil-servant">Civil Servant</a>
+          <span class="work-desc">The legacy of Kenneth Clark's 1969 art history television broadcast, <em>Civilisation</em>.</span>
+          <span class="work-meta"><span class="outlet">Frieze Masters</span> · Essay</span>
+        </li>
+
+        <li>
+          <a class="work-title" href="https://www.kurzfilmtage.de/en/">Oberhausen Short Film Festival</a>
+          <span class="work-desc">Commissioned essay for the German film festival's programme.</span>
+          <span class="work-meta"><span class="outlet">Kurzfilmtage Oberhausen</span> · Programme essay</span>
+        </li>
+
+      </ul>
+    </section>
+
+    <!-- ── SECTION 3 ─────────────────────────────────── -->
+    <section>
+      <h2>Art, music, and elsewhere</h2>
+      <ul class="works">
+
+        <li>
+          <a class="work-title" href="https://artreview.com/reviews/ar_summer_2018_review_let_the_river_flow/">Let the River Flow</a>
+          <span class="work-desc">Review of the indigenous Sámi activist art survey at Office for Contemporary Art Norway, Oslo.</span>
+          <span class="work-meta"><span class="outlet">ArtReview</span> · Summer 2018</span>
+        </li>
+
+        <li>
+          <a class="work-title" href="https://frieze.com/article/adam-christensen-ive-always-known-how-make-people-laugh">Adam Christensen</a>
+          <span class="work-desc">Interview with the musician and artist on his exhibition 'Shitty Heartbreaker' at Overgaden, Copenhagen.</span>
+          <span class="work-meta"><span class="outlet">Frieze</span> · Interview</span>
+        </li>
+
+        <li>
+          <a class="work-title" href="https://www.thewire.co.uk/issues/372">Wayward Narratives and Beastly Obsessions</a>
+          <span class="work-desc">Feature on the artist and poet Heather Phillipson.</span>
+          <span class="work-meta"><span class="outlet">The Wire</span> · Issue 372</span>
+        </li>
+
+        <li>
+          <a class="work-title" href="https://www.frieze.com/article/focus-interview-benedict-drew">Puncturing Fantasies</a>
+          <span class="work-desc">Interview with the artist and musician Benedict Drew.</span>
+          <span class="work-meta"><span class="outlet">Frieze</span> · Interview</span>
+        </li>
+
+        <li>
+          <a class="work-title" href="http://www.thewire.co.uk/in-writing/interviews/oreet-ashery_s-party-for-freedom">Unfinished Revolutions</a>
+          <span class="work-desc">Interview with the artist Oreet Ashery on her Party For Freedom project.</span>
+          <span class="work-meta"><span class="outlet">The Wire</span> · Interview</span>
+        </li>
+
+        <li>
+          <a class="work-title" href="https://www.thewire.co.uk/issues/414">Lifestyle Minimalism</a>
+          <span class="work-desc">Essay on minimalism and consumer culture.</span>
+          <span class="work-meta"><span class="outlet">The Wire</span> · Issue 414</span>
+        </li>
+
+        <li>
+          <a class="work-title" href="http://www.thewire.co.uk/in-writing/columns/nathan-budzinski_eternal-pish">Eternal Pish</a>
+          <span class="work-desc">Essay on music and Red Bull's marketing tactics.</span>
+          <span class="work-meta"><span class="outlet">The Wire</span> · Column</span>
+        </li>
+
+        <li>
+          <a class="work-title" href="https://frieze.com/article/books-38">Why Do Artists Write Novels?</a>
+          <span class="work-desc">Feature on contemporary art and writing.</span>
+          <span class="work-meta"><span class="outlet">Frieze</span> · Feature</span>
+        </li>
+
+        <li>
+          <a class="work-title" href="https://artreview.com/nina-canell-future-mechanism-rag-plus-two-grams-simian-copenhagen-review-nathaniel-budzinski/">Hoarder's Fascination</a>
+          <span class="work-desc">Profile and review of the Swedish artist Nina Canell's exhibition in Copenhagen.</span>
+          <span class="work-meta"><span class="outlet">ArtReview</span> · Review</span>
+        </li>
+
+        <li>
+          <a class="work-title" href="https://www.thewire.co.uk/issues/362">Time and Motion</a>
+          <span class="work-desc">Interview with the Turkish artist and musician Cevdet Erek.</span>
+          <span class="work-meta"><span class="outlet">The Wire</span> · Issue 362</span>
+        </li>
+
+        <!-- TO RELINK: replace <span class="work-title"> with:
+             <a class="work-title" href="/writing/pdfs/elizabeth-price-the-wire-2012.pdf"> ... </a> -->
+        <li>
+          <span class="work-title">Elizabeth Price</span>
+          <span class="work-desc">Feature interview with the Turner Prize-winning artist.</span>
+          <span class="work-meta"><span class="outlet">The Wire</span> · April 2012 · Print</span>
+        </li>
+
+        <!-- TO RELINK: replace <span class="work-title"> with:
+             <a class="work-title" href="/writing/pdfs/djurberg-berg-the-wire-2011.pdf"> ... </a> -->
+        <li>
+          <span class="work-title">Nathalie Djurberg and Hans Berg</span>
+          <span class="work-desc">Interview with the artist and musician duo.</span>
+          <span class="work-meta"><span class="outlet">The Wire</span> · October 2011 · Print</span>
+        </li>
+
+        <li>
+          <a class="work-title" href="https://johnchantler.bandcamp.com/album/endless-sky">Two Dreams For Endless Skies</a>
+          <span class="work-desc">Liner notes for <em>Endless Sky</em> by John Chantler &amp; Johs Lund.</span>
+          <span class="work-meta"><span class="outlet">Liner notes</span></span>
+        </li>
+
+      </ul>
+    </section>
+
+  </main>
+
+  <footer>
+    <span class="footer-note">© Nate Budzinski</span>
+    <span class="footer-note">Copenhagen</span>
+  </footer>
+
+</body>
+</html>
