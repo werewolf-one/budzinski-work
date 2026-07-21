@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>About — Nate Budzinski</title>
+  <meta name="description" content="Nate Budzinski is a director making narrative and documentary films on the edges of genre. Based in Copenhagen.">
+  <link rel="canonical" href="https://budzinski.work/about/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #0e0e0e;
+      --text:       #e8e8e4;
+      --text-dim:   rgba(232, 232, 228, 0.45);
+      --text-faint: rgba(232, 232, 228, 0.15);
+      --accent:     #a07248;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ─────────────────────────────────────────── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.75rem 2.5rem;
+      border-bottom: 1px solid var(--text-faint);
+    }
+
+    .nav-name {
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-name:hover { color: var(--text); }
+
+    .nav-links a.active { color: var(--text); }
+
+    /* ── MAIN ────────────────────────────────────────── */
+    main {
+      padding: 5rem 2.5rem 8rem;
+      max-width: 680px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 3.5rem;
+    }
+
+    .bio {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text);
+    }
+
+    .bio p {
+      margin-bottom: 1.4rem;
+    }
+
+    .bio p:last-child { margin-bottom: 0; }
+
+    /* ── CONTACT LINE ────────────────────────────────── */
+    .contact-line {
+      margin-top: 3.5rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--text-faint);
+      font-size: 0.85rem;
+      color: var(--text-dim);
+    }
+
+    .contact-line a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--text-faint);
+      padding-bottom: 1px;
+      transition: border-color 0.2s ease;
+    }
+
+    .contact-line a:hover { border-color: var(--text-dim); }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--text-faint);
+      padding: 2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-note {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: rgba(232, 232, 228, 0.2);
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 600px) {
+      nav { padding: 1.4rem 1.5rem; }
+      .nav-name { display: none; }
+      main { padding: 3.5rem 1.5rem 6rem; }
+      footer { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-name" href="/">Nate Budzinski</a>
+    <ul class="nav-links">
+      <li><a href="/films/">Films</a></li>
+      <li><a href="/writing/">Writing</a></li>
+      <li><a href="/about/" class="active">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <h1>About</h1>
+
+    <div class="bio">
+      <p>
+        I make films on the edges of genre — where horror meets world, the supernatural
+        meets so-called reality.
+      </p>
+      <p>
+        <em>The Hauntologist</em> (2024), my scripted absurdist docufiction feature, has
+        screened at festivals, cinemas, and art galleries. <em>Gro's Garden</em>, a folk
+        horror feature film about an ambitious scientist who gets swallowed up by the
+        Danish landscape, is in post-production for a late 2026 premiere. My documentary
+        feature <em>Nine Futures</em>, about experimental and outsider music, premiered
+        at CPH:DOX and screened internationally.
+      </p>
+      <p>
+        Alongside directing I've produced for stage and screen and online. My company,
+        Wolf One, develops and produces films in collaboration with other filmmakers.</p>
+
+      <p>
+        For fifteen years I wrote criticism on film, art and music for <em>Sight &amp; Sound</em>,
+        <em>Frieze</em>, <em>The Wire</em> and <em>ArtReview</em> — much of it on folk horror,
+        hauntology and the occult revival, which is more or less where the films come from.
+        <a href="/writing/">Selected writing</a>.
+      </p>
+      <p>Born in BC. Aged in London. Based in Copenhagen.</p>
+    </div>
+
+    <p class="contact-line">
+      Contact: <a href="mailto:office@budzinski.work">office@budzinski.work</a>
+    </p>
+  </main>
+
+  <footer>
+    <span class="footer-note">© Nate Budzinski</span>
+    <span class="footer-note">Copenhagen</span>
+  </footer>
+
+</body>
+</html>
