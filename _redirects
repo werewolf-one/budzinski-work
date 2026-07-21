@@ -1,0 +1,45 @@
+# ─────────────────────────────────────────────────────────
+# budzinski.work — Netlify redirects
+# Squarespace → static site migration, 21 July 2026
+#
+# Format: from  to  status
+# Netlify processes these top to bottom; first match wins.
+# ─────────────────────────────────────────────────────────
+
+# ── Canonical host: www → apex ───────────────────────────
+# The build sets <link rel="canonical"> to the apex domain on
+# every page, so www must fold into apex, not the reverse.
+https://www.budzinski.work/*    https://budzinski.work/:splat    301!
+
+# ── Old domain recovery ──────────────────────────────────
+# Requires nathanielbudzinski.com added as a domain alias in
+# Netlify. Recovers ~2013–2019 link equity from ArtReview,
+# Frieze, The Wire and BFI contributor bios.
+https://nathanielbudzinski.com/*        https://budzinski.work/:splat    301!
+https://www.nathanielbudzinski.com/*    https://budzinski.work/:splat    301!
+
+# ── Squarespace URL map ──────────────────────────────────
+# Verified against archived page canonicals, 21 July 2026.
+
+/projects               /films/     301
+/projects/*             /films/     301
+
+/the-hauntologist       /films/     301
+/the-hauntologist-movie /films/     301
+
+/apocalypse-rock        /writing/   301
+/shop/p/bundle-apocalypse-rock-audiobook-and-ebook   /writing/   301
+/shop/*                 /writing/   301
+
+/writing                /writing/   301
+/about                  /about/     301
+/contact                /contact/   301
+
+# Squarespace commerce endpoints — no equivalent, send home
+/cart                   /           301
+/checkout               /           301
+
+# ── Catch-all ────────────────────────────────────────────
+# Any unmapped legacy Squarespace URL goes to the homepage
+# rather than a 404. Keep this LAST — it matches everything.
+/*                      /           301

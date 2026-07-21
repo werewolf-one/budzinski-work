@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Nate Budzinski — Filmmaker</title>
+  <meta name="description" content="Nate Budzinski is a filmmaker making narrative and documentary films rooted in place, history, and slowburning dread. Based in Copenhagen.">
+  <link rel="canonical" href="https://budzinski.work/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://budzinski.work/">
+  <meta property="og:title" content="Nate Budzinski — Director">
+  <meta property="og:description" content="Narrative and documentary work rooted in place, folk tradition, and slow dread.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── RESET ───────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ── TOKENS ──────────────────────────────────────── */
+    :root {
+      --bg:         #0e0e0e;
+      --text:       #e8e8e4;
+      --text-dim:   rgba(232, 232, 228, 0.45);
+      --text-faint: rgba(232, 232, 228, 0.15);
+      --accent:     #a07248;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ─────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.75rem 2.5rem;
+    }
+
+    .nav-name {
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-name:hover { color: var(--text); }
+
+    /* ── HERO ────────────────────────────────────────── */
+    /* Replace [HERO-IMAGE] with actual still filename once chosen. */
+    #hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 580px;
+      display: flex;
+      align-items: flex-end;
+      padding: 4.5rem 2.5rem;
+      overflow: hidden;
+      background-color: var(--bg);
+      background-image: url(/images/gros-garden-hero.webp);
+      background-size: cover;
+      background-position: center;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(14, 14, 14, 0.5);
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      line-height: 1.05;
+      color: var(--text);
+      margin-bottom: 0.85rem;
+    }
+
+    .hero-descriptor {
+      font-size: 0.72rem;
+      font-weight: 300;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    /* ── FILMS LIST ──────────────────────────────────── */
+    #films {
+      padding: 7rem 2.5rem 2rem;
+      max-width: 860px;
+    }
+
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 2.5rem;
+    }
+
+    .film-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: baseline;
+      gap: 2rem;
+      padding: 1.6rem 0;
+      border-top: 1px solid var(--text-faint);
+      text-decoration: none;
+      color: var(--text);
+      transition: opacity 0.2s ease;
+    }
+
+    .film-row:last-child { border-bottom: 1px solid var(--text-faint); }
+    .film-row:hover { opacity: 0.55; }
+
+    .film-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.45rem;
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    .film-meta {
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      white-space: nowrap;
+    }
+
+    /* ── POSITIONING LINE ────────────────────────────── */
+    .positioning {
+      padding: 4.5rem 2.5rem 7rem;
+      max-width: 560px;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      font-weight: 400;
+      color: var(--text-dim);
+      line-height: 1.75;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--text-faint);
+      padding: 2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-note {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: rgba(232, 232, 228, 0.2);
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 600px) {
+      nav { padding: 1.4rem 1.5rem; }
+      .nav-name { display: none; }
+      #hero { padding: 3.5rem 1.5rem; }
+      #films { padding: 5rem 1.5rem 2rem; }
+      .positioning { padding: 3rem 1.5rem 5rem; }
+      footer { padding: 1.5rem; flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-name" href="/">Nate Budzinski</a>
+    <ul class="nav-links">
+      <li><a href="/films/">Films</a></li>
+      <li><a href="/writing/">Writing</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="hero">
+    <!-- HERO IMAGE: uncomment and set path once still is chosen -->
+    <!-- style="background-image: url(images/hero.jpg);" on the #hero element -->
+    <div class="hero-content">
+      <h1 class="hero-name">Nate Budzinski</h1>
+      <p class="hero-descriptor">Filmmaker</p>
+    </div>
+  </section>
+
+  <section id="films">
+    <p class="section-label">Films</p>
+
+    <a class="film-row" href="/films/gros-garden/">
+      <span class="film-title">Gro's Garden</span>
+      <span class="film-meta">Feature · 2026</span>
+    </a>
+
+    <!-- These two have no project page yet, so they point at /films/ rather
+         than a URL that doesn't exist. Repoint to /films/the-hauntologist/ and
+         /films/nine-futures/ once those pages are built. -->
+    <a class="film-row" href="/films/">
+      <span class="film-title">The Hauntologist</span>
+      <span class="film-meta">Feature · 2024</span>
+    </a>
+
+    <a class="film-row" href="/films/">
+      <span class="film-title">Nine Futures</span>
+      <span class="film-meta">Documentary · 2015</span>
+    </a>
+
+  </section>
+
+  <p class="positioning">
+    Narrative and documentary work rooted in place,<br>history, and slowburning dread.
+  </p>
+
+  <footer>
+    <span class="footer-note">© Nate Budzinski</span>
+    <span class="footer-note">Copenhagen</span>
+  </footer>
+
+</body>
+</html>
