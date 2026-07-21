@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Gro's Garden — Nate Budzinski</title>
+  <meta name="description" content="Gro's Garden — a folk horror feature film about an ambitious scientist swallowed up by the Danish landscape. Directed by Nate Budzinski.">
+  <link rel="canonical" href="https://budzinski.work/films/gros-garden/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #0e0e0e;
+      --text:       #e8e8e4;
+      --text-dim:   rgba(232, 232, 228, 0.45);
+      --text-faint: rgba(232, 232, 228, 0.15);
+      --accent:     #a07248;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ─────────────────────────────────────────── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.75rem 2.5rem;
+      border-bottom: 1px solid var(--text-faint);
+    }
+
+    .nav-name {
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-name:hover { color: var(--text); }
+
+    /* ── HERO STILL ──────────────────────────────────── */
+    .project-hero {
+      width: 100%;
+      aspect-ratio: 2.39 / 1; /* Scope-ish ratio — adjust if portrait */
+      background: rgba(232, 232, 228, 0.04);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* When still is ready, replace the div with:
+       <img class="project-hero" src="/images/gros-garden-hero.jpg" alt="Gro's Garden">
+       and remove the placeholder spans. */
+
+    .hero-placeholder-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(232, 232, 228, 0.15);
+    }
+
+    /* ── PROJECT HEADER ──────────────────────────────── */
+    .project-header {
+      padding: 3.5rem 2.5rem 0;
+      max-width: 860px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: start;
+      gap: 2rem;
+    }
+
+    .project-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: -0.01em;
+      line-height: 1.05;
+      margin-bottom: 0.85rem;
+    }
+
+    .project-meta {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      line-height: 2;
+    }
+
+    .project-status {
+      font-size: 0.65rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent);
+      white-space: nowrap;
+      padding-top: 0.5rem;
+    }
+
+    /* ── SYNOPSIS ────────────────────────────────────── */
+    .project-body {
+      padding: 3.5rem 2.5rem;
+      max-width: 680px;
+    }
+
+    .section-label {
+      font-size: 0.62rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 1.5rem;
+    }
+
+    .synopsis p {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+    }
+
+    .synopsis p:last-child { margin-bottom: 0; }
+
+    /* Draft note — remove before publishing */
+    .draft-note {
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      opacity: 0.7;
+    }
+
+    /* ── CREDITS ─────────────────────────────────────── */
+    .credits {
+      padding: 0 2.5rem 3.5rem;
+      max-width: 680px;
+      border-top: 1px solid var(--text-faint);
+      margin-top: 1rem;
+    }
+
+    .credits-grid {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 0.5rem 1.5rem;
+      padding-top: 2rem;
+    }
+
+    .credit-role {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      padding-top: 0.15rem;
+    }
+
+    .credit-name {
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    /* ── FESTIVAL STATUS ─────────────────────────────── */
+    .festival-status {
+      padding: 0 2.5rem 5rem;
+      max-width: 680px;
+      border-top: 1px solid var(--text-faint);
+    }
+
+    .festival-note {
+      padding-top: 2rem;
+      font-size: 0.88rem;
+      color: var(--text-dim);
+      line-height: 1.65;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--text-faint);
+      padding: 2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-note {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: rgba(232, 232, 228, 0.2);
+    }
+
+    footer a {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    footer a:hover { color: var(--text); }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 680px) {
+      nav { padding: 1.4rem 1.5rem; }
+      .nav-name { display: none; }
+      .project-header { padding: 2.5rem 1.5rem 0; grid-template-columns: 1fr; }
+      .project-body, .credits, .festival-status { padding-left: 1.5rem; padding-right: 1.5rem; }
+      footer { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-name" href="/">Nate Budzinski</a>
+    <ul class="nav-links">
+      <li><a href="/films/">Films</a></li>
+      <li><a href="/writing/">Writing</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </nav>
+
+  <img class="project-hero" src="/images/gros-garden-hero.webp" alt="Gro's Garden — production still">
+
+  <div class="project-header">
+    <div>
+      <h1 class="project-title">Gro's Garden</h1>
+      <p class="project-meta">
+        Feature Film &nbsp;·&nbsp; Folk Horror<br>
+        Denmark / United Kingdom &nbsp;·&nbsp; 2026
+      </p>
+    </div>
+    <p class="project-status">In post-production</p>
+  </div>
+
+  <div class="project-body">
+    <p class="section-label">Synopsis</p>
+
+    <div class="synopsis">
+      <p>
+        Toby Harper is a plant scientist working at the edge of what he knows. He's moved to
+        Denmark to find and study rare botanical specimens emerging in the ancient Scandinavian
+        boglands due to climate change — methodical, driven, convinced that the landscape holds
+        answers to questions he's spent a career forming.
+      </p>
+      <p>
+        The landscape has other ideas. Over the course of the film, Toby is drawn deeper into
+        the fields and wetlands, his certainties dissolving at roughly the same rate as the
+        boundary between research and obsession. What begins as a study of plants becomes a
+        study of what grows in the swamplands of rational thought.
+      </p>
+    </div>
+  </div>
+
+  <div class="credits">
+    <p class="section-label">Credits</p>
+    <div class="credits-grid">
+      <span class="credit-role">Director</span>
+      <span class="credit-name">Nate Budzinski</span>
+
+      <span class="credit-role">Cast</span>
+      <span class="credit-name">
+        Fif Beck as Gro<br>
+        Rowland Stirling as Toby<br>
+        Jesper Paasche as Klaus
+      </span>
+
+      <span class="credit-role">Producer</span>
+      <span class="credit-name">Nate Budzinski</span>
+
+      <span class="credit-role">Director of Photography</span>
+      <span class="credit-name">Michael Mark Lanham F.N.F.</span>
+
+      <span class="credit-role">Editor</span>
+      <span class="credit-name">Kirsti Theresa Lowdermilk N.F.K.</span>
+
+      <span class="credit-role">Production Designer</span>
+      <span class="credit-name">Alexandra Stroemich</span>
+
+      <span class="credit-role">Composer</span>
+      <span class="credit-name">Kevin David Lowdermilk</span>
+    </div>
+  </div>
+
+  <div class="festival-status">
+    <p class="section-label">Festival &amp; Exhibition</p>
+    <p class="festival-note">
+      In post-production. Premiere TBC.
+    </p>
+  </div>
+
+  <footer>
+    <a href="/films/">← All films</a>
+    <span class="footer-note">Wolf One / Werewolf One Limited</span>
+  </footer>
+
+</body>
+</html>
