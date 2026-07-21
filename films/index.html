@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Films — Nate Budzinski</title>
+  <meta name="description" content="Films by Nate Budzinski — director of Gro's Garden, The Hauntologist, and Nine Futures.">
+  <link rel="canonical" href="https://budzinski.work/films/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:         #0e0e0e;
+      --text:       #e8e8e4;
+      --text-dim:   rgba(232, 232, 228, 0.45);
+      --text-faint: rgba(232, 232, 228, 0.15);
+      --accent:     #a07248;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', 'Helvetica Neue', Helvetica, sans-serif;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
+    }
+
+    /* ── NAV ─────────────────────────────────────────── */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.75rem 2.5rem;
+      border-bottom: 1px solid var(--text-faint);
+    }
+
+    .nav-name {
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.7rem;
+      font-weight: 300;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-name:hover { color: var(--text); }
+
+    .nav-links a.active { color: var(--text); }
+
+    /* ── PAGE HEADER ─────────────────────────────────── */
+    .page-header {
+      padding: 5rem 2.5rem 3rem;
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--text);
+    }
+
+    /* ── FILM ENTRIES ────────────────────────────────── */
+    .films-list {
+      padding: 0 2.5rem;
+      max-width: 900px;
+    }
+
+    .film-entry {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+      padding: 3.5rem 0;
+      border-top: 1px solid var(--text-faint);
+      text-decoration: none;
+      color: var(--text);
+      transition: opacity 0.2s ease;
+    }
+
+    .film-entry:last-child { border-bottom: 1px solid var(--text-faint); }
+    .film-entry:hover { opacity: 0.6; }
+
+    /* Still placeholder — swap for <img> once stills are ready */
+    .film-still {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: rgba(232, 232, 228, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .film-still img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(0.15) contrast(1.02);
+      transition: filter 0.5s ease, transform 0.6s ease;
+    }
+
+    .film-entry:hover .film-still img {
+      filter: grayscale(0) contrast(1);
+      transform: scale(1.02);
+    }
+
+    .still-placeholder-label {
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(232, 232, 228, 0.2);
+    }
+
+    /* Flat field for titles with no available still */
+    .film-still--empty {
+      background: #141414;
+      border: 1px solid rgba(232, 232, 228, 0.06);
+    }
+
+    .still-empty-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(1.3rem, 2.6vw, 2rem);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: rgba(232, 232, 228, 0.28);
+    }
+
+    .film-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      padding-top: 0.25rem;
+    }
+
+    .film-format {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .film-title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      font-style: italic;
+      line-height: 1.2;
+    }
+
+    .film-logline {
+      font-size: 0.9rem;
+      color: var(--text-dim);
+      line-height: 1.65;
+      max-width: 36ch;
+    }
+
+    .film-status {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 0.5rem;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--text-faint);
+      padding: 2rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6rem;
+    }
+
+    .footer-note {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: rgba(232, 232, 228, 0.2);
+    }
+
+    /* ── RESPONSIVE ──────────────────────────────────── */
+    @media (max-width: 700px) {
+      nav { padding: 1.4rem 1.5rem; }
+      .nav-name { display: none; }
+      .page-header { padding: 3.5rem 1.5rem 2rem; }
+      .films-list { padding: 0 1.5rem; }
+      .film-entry { grid-template-columns: 1fr; gap: 1.5rem; }
+      footer { padding: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-name" href="/">Nate Budzinski</a>
+    <ul class="nav-links">
+      <li><a href="/films/" class="active">Films</a></li>
+      <li><a href="/writing/">Writing</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <h1 class="page-title">Films</h1>
+  </header>
+
+  <div class="films-list">
+
+    <a class="film-entry" href="/films/gros-garden/">
+      <div class="film-still">
+        <img src="/images/gros-garden-still.webp" width="1920" height="1013" loading="lazy" decoding="async"
+             alt="Gro's Garden — production still: Gro in the Danish landscape">
+      </div>
+      <div class="film-info">
+        <span class="film-format">Feature · Folk Horror · Denmark / UK</span>
+        <span class="film-title">Gro's Garden</span>
+        <p class="film-logline">An ambitious scientist arrives in Denmark to study a rare botanical specimen. The landscape has other plans.</p>
+        <span class="film-status">In post-production</span>
+      </div>
+    </a>
+
+    <!-- No /films/the-hauntologist/ page exists yet — entry is non-clickable
+         until one is built, otherwise the link hits the _redirects catch-all
+         and dumps the visitor on the homepage. -->
+    <div class="film-entry">
+      <div class="film-still">
+        <img src="/images/hauntologist-still.webp" width="1920" height="881" loading="lazy" decoding="async"
+             alt="The Hauntologist — title card">
+      </div>
+      <div class="film-info">
+        <span class="film-format">Feature · Docufiction · 2024</span>
+        <span class="film-title">The Hauntologist</span>
+        <p class="film-logline">A scripted absurdist docufiction feature. Screened at festivals, cinemas, and art galleries.</p>
+      </div>
+    </div>
+
+    <!-- No stills exist for Nine Futures anywhere in the archive. Flat field
+         with the title set in it reads as a design choice; a "still to follow"
+         placeholder reads as an unfinished site. -->
+    <div class="film-entry">
+      <div class="film-still film-still--empty">
+        <span class="still-empty-title">Nine&nbsp;Futures</span>
+      </div>
+      <div class="film-info">
+        <span class="film-format">Documentary Feature · 2015</span>
+        <span class="film-title">Nine Futures</span>
+        <!-- closing tag below is </div>, not </a> — entry is non-clickable -->
+        <p class="film-logline">A documentary feature about experimental and outsider music. World premiere at CPH:DOX.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span class="footer-note">© Nate Budzinski</span>
+    <span class="footer-note">Copenhagen</span>
+  </footer>
+
+</body>
+</html>
