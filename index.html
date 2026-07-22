@@ -5,13 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>Nate Budzinski — Filmmaker</title>
-  <meta name="description" content="Nate Budzinski is a filmmaker making narrative and documentary films rooted in place, history, and slowburning dread. Based in Copenhagen.">
+  <meta name="description" content="Nate Budzinski is a filmmaker based in Copenhagen, working in folk horror, slow-burning genre and documentary. Gro's Garden in post-production. Also published as Nathaniel and Nathan Budzinski.">
   <link rel="canonical" href="https://budzinski.work/">
 
   <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nate Budzinski">
   <meta property="og:url" content="https://budzinski.work/">
-  <meta property="og:title" content="Nate Budzinski — Director">
-  <meta property="og:description" content="Narrative and documentary work rooted in place, folk tradition, and slow dread.">
+  <meta property="og:title" content="Nate Budzinski — Filmmaker">
+  <meta property="og:description" content="Narrative and documentary work rooted in place, folk tradition, and slow-burning dread.">
+  <meta property="og:image" content="https://budzinski.work/images/og-card.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Still from Gro's Garden — a figure moving through forest, motion-blurred.">
+  <meta name="twitter:card" content="summary_large_image">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -82,7 +88,6 @@
     .nav-name:hover { color: var(--text); }
 
     /* ── HERO ────────────────────────────────────────── */
-    /* Replace [HERO-IMAGE] with actual still filename once chosen. */
     #hero {
       position: relative;
       width: 100%;
@@ -98,17 +103,34 @@
       background-position: center;
     }
 
+    /* Scrim. Was a flat rgba(14,14,14,0.5) across the whole frame, which cost
+       the still about half its exposure. Now a gradient: dark only where type
+       actually sits — behind the nav at the top and behind the name at the
+       bottom — and near-clear through the middle third so the image reads. */
     #hero::before {
       content: '';
       position: absolute;
       inset: 0;
-      background: rgba(14, 14, 14, 0.5);
+      background: linear-gradient(
+        to bottom,
+        rgba(14, 14, 14, 0.62)   0%,
+        rgba(14, 14, 14, 0.28)  14%,
+        rgba(14, 14, 14, 0.08)  32%,
+        rgba(14, 14, 14, 0.08)  54%,
+        rgba(14, 14, 14, 0.42)  78%,
+        rgba(14, 14, 14, 0.78) 100%
+      );
       z-index: 0;
     }
+
+    /* Insurance for type sitting over a brighter image. Imperceptible on the
+       flat-dark pages, so the nav still looks identical site-wide. */
+    nav a { text-shadow: 0 1px 12px rgba(0, 0, 0, 0.55); }
 
     .hero-content {
       position: relative;
       z-index: 1;
+      text-shadow: 0 1px 20px rgba(0, 0, 0, 0.5);
     }
 
     .hero-name {
@@ -175,7 +197,7 @@
 
     /* ── POSITIONING LINE ────────────────────────────── */
     .positioning {
-      padding: 4.5rem 2.5rem 7rem;
+      padding: 4.5rem 2.5rem 1.75rem;
       max-width: 560px;
       font-family: 'Playfair Display', Georgia, serif;
       font-size: 1.05rem;
@@ -183,6 +205,29 @@
       font-weight: 400;
       color: var(--text-dim);
       line-height: 1.75;
+    }
+
+    /* ── INTRO ───────────────────────────────────────── */
+    /* Carries the crawlable body copy a name query needs. Kept visually
+       quiet — Inter, dim, small — so the page still reads work-first. */
+    .intro {
+      padding: 0 2.5rem 7rem;
+      max-width: 560px;
+      font-size: 0.86rem;
+      line-height: 1.85;
+      color: var(--text-dim);
+    }
+
+    .intro a {
+      color: var(--text-dim);
+      text-decoration: none;
+      border-bottom: 1px solid var(--text-faint);
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .intro a:hover {
+      color: var(--text);
+      border-bottom-color: var(--accent);
     }
 
     /* ── FOOTER ──────────────────────────────────────── */
@@ -200,13 +245,29 @@
       color: rgba(232, 232, 228, 0.2);
     }
 
+    .footer-links {
+      display: flex;
+      gap: 1.75rem;
+    }
+
+    .footer-links a {
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: rgba(232, 232, 228, 0.2);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover { color: var(--text-dim); }
+
     /* ── RESPONSIVE ──────────────────────────────────── */
     @media (max-width: 600px) {
       nav { padding: 1.4rem 1.5rem; }
       .nav-name { display: none; }
       #hero { padding: 3.5rem 1.5rem; }
       #films { padding: 5rem 1.5rem 2rem; }
-      .positioning { padding: 3rem 1.5rem 5rem; }
+      .positioning { padding: 3rem 1.5rem 1.5rem; }
+      .intro { padding: 0 1.5rem 5rem; }
       footer { padding: 1.5rem; flex-direction: column; gap: 0.75rem; align-items: flex-start; }
     }
   </style>
@@ -224,8 +285,7 @@
   </nav>
 
   <section id="hero">
-    <!-- HERO IMAGE: uncomment and set path once still is chosen -->
-    <!-- style="background-image: url(images/hero.jpg);" on the #hero element -->
+    <!-- Hero still: images/gros-garden-hacksaw.webp, set on #hero in CSS. -->
     <div class="hero-content">
       <h1 class="hero-name">Nate Budzinski</h1>
       <p class="hero-descriptor">Filmmaker and writer</p>
@@ -256,11 +316,24 @@
   </section>
 
   <p class="positioning">
-    Narrative and documentary work rooted in place,<br>history, and slowburning dread.
+    Narrative and documentary work rooted in place,<br>history, and slow-burning dread.
+  </p>
+
+  <p class="intro">
+    Nate Budzinski is a filmmaker based in Copenhagen, working in folk horror,
+    slow-burning genre and documentary. His feature <em>Gro's Garden</em> is in
+    post-production, following <em>The Hauntologist</em> (2024) and
+    <em>Nine Futures</em> (2015), which premiered at CPH:DOX. He writes on film
+    and culture for <a href="/writing/">ArtReview, Frieze, The Wire and Sight &amp; Sound</a>,
+    and is also published as Nathaniel and Nathan Budzinski.
   </p>
 
   <footer>
     <span class="footer-note">© Nate Budzinski</span>
+    <span class="footer-links">
+      <a href="https://www.imdb.com/name/nm16288719/" rel="me noopener" target="_blank">IMDb</a>
+      <a href="https://wolfone.studio/" rel="noopener" target="_blank">Wolf One</a>
+    </span>
   </footer>
 
 </body>
